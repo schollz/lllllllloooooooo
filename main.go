@@ -66,10 +66,11 @@ func ADS7830Read(ch int) (val int, err error) {
 func main() {
 	log.SetLevel("debug")
 	for {
-		_, err := ADS7830Read(0)
+		val, err := ADS7830Read(0)
 		if err != nil {
 			log.Error(err)
 		}
+		log.Infof("Value: %d", val)
 		time.Sleep(100 * time.Millisecond)
 	}
 
