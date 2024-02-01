@@ -57,6 +57,9 @@ func ADS7830Read(ch int) (val int, err error) {
 	// print out binary value
 	log.Debugf("Read: %08b", buf[0])
 
+	// convert to integer
+	val = int(buf[0])
+
 	return
 }
 
