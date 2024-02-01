@@ -11,10 +11,12 @@ import (
 // ADS7830Read reads from the ADS7830 ADC on the specified channel.
 func ADS7830Read(ch int) (val int, err error) {
 	// Define the base command byte.
-	commandByte := byte(0b10000100)
+	var commandByte byte
 
 	// Select the channel.
 	switch ch {
+	case 0:
+		commandByte = 0b10000100
 	case 1:
 		commandByte = 0b11000100
 	case 2:
